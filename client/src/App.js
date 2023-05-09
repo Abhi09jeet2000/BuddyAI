@@ -43,15 +43,15 @@ function App() {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        // message: chatLogNew.map((message) => message.message).join('\n'),
-        message: input,
+        message: chatLogNew.map((message) => message.message).join('\n'),
+        // message: input,
         currentModel,
       }),
     })
     setInput('')
     const data = await response.json()
     setChatLog([...chatLogNew, { user: 'gpt', message: `${data.message}` }])
-    // console.log(data.message)
+    console.log(data.message)
   }
 
   function clearChat() {
